@@ -391,7 +391,7 @@ function makeQuiz() {
       button.textContent = item.title;
     } else if (isVisualAnimal) {
       button.className = "quiz-option quiz-option-visual";
-      button.innerHTML = `<span>${item.visual}</span>`;
+      button.innerHTML = `<span>${item.visual}</span>${item.title}`;
     } else {
       button.className = "quiz-option";
       button.innerHTML = `<span>${item.visual}</span>${item.title}`;
