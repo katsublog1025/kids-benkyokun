@@ -1116,6 +1116,7 @@ p {
   inset: 0;
   z-index: 1000;
   display: grid;
+  pointer-events: none;
   place-items: center;
   padding: 20px;
   background: rgba(20, 32, 42, 0.6);
@@ -1126,6 +1127,7 @@ p {
 
 .modal-overlay.is-open {
   opacity: 1;
+  pointer-events: auto;
 }
 
 .modal-card {
