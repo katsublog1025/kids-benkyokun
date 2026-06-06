@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>キッズ勉強くん</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="app-header">
+    <a class="brand" href="#top" aria-label="キッズ勉強くん ホーム">
+      <span class="brand-mark" aria-hidden="true">あ</span>
+      <span class="brand-text">
+        <span>キッズ勉強くん</span>
+        <small>入学前のまなびアプリ</small>
+      </span>
+    </a>
+    <div class="progress-panel" aria-label="今日のスター">
+      <span class="progress-icon" aria-hidden="true">★</span>
+      <span class="progress-label">きょうのスター</span>
+      <strong id="starCount">0</strong>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow">よむ・みつける・こたえる</p>
+        <h1 id="hero-title">できた！がふえる、<span>はじめての学び。</span></h1>
+        <p class="hero-lead">文字、ことば、どうぶつ、時計、くらしの知識を、カードとクイズで少しずつ覚えよう。</p>
+        <div class="hero-actions">
+          <button class="primary-action" type="button" data-jump="chart">五十音表をみる</button>
+          <button class="secondary-action" type="button" data-jump="learn">カードでまなぶ</button>
+          <button class="secondary-action" type="button" data-jump="quiz">クイズをする</button>
+          <button class="secondary-action" type="button" data-jump="check">チェック表</button>
+        </div>
+      </div>
+
+      <div class="play-stage" aria-label="学習アプリのイメージ">
+        <div class="stage-card stage-card-main">
+          <span class="stage-kana">あ</span>
+          <span class="stage-word">あひる</span>
+        </div>
+        <div class="stage-card stage-card-clock">
+          <div class="mini-clock" aria-hidden="true">
+            <span class="mini-clock-hand hour"></span>
+            <span class="mini-clock-hand minute"></span>
+            <span class="mini-clock-center"></span>
+          </div>
+          <span>3時</span>
+        </div>
+        <div class="stage-card stage-card-quiz">
+          <span>?</span>
+          <strong>どれかな</strong>
+        </div>
+        <div class="stage-note">きょうも 1つ できた！</div>
+      </div>
+    </section>
+
+    <section class="section-band chart-band" id="chart" aria-labelledby="chart-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">ならんでおぼえる</p>
+          <h2 id="chart-title">五十音表</h2>
+        </div>
+        <div class="chart-toggle" role="group" aria-label="ひらがな・カタカナ切り替え">
+          <button class="chart-toggle-btn is-active" type="button" data-charttype="hiragana">ひらがな</button>
+          <button class="chart-toggle-btn" type="button" data-charttype="katakana">カタカナ</button>
+        </div>
+      </div>
+      <div class="chart-wrap">
+        <div class="chart-vowel-header">
+          <span></span>
+          <span>あ</span><span>い</span><span>う</span><span>え</span><span>お</span>
+        </div>
+        <div class="chart-grid" id="chartGrid" aria-label="五十音表"></div>
+      </div>
+    </section>
+
+    <section class="section-band learn-band" id="learn" aria-labelledby="learn-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">えらんで まなぶ</p>
+          <h2 id="learn-title">学習カード</h2>
+        </div>
+        <div class="tab-list" role="tablist" aria-label="学習ジャンル">
+          <button class="tab is-active" type="button" role="tab" aria-selected="true" data-category="hiragana">ひらがな</button>
+          <button class="tab" type="button" role="tab" aria-selected="false" data-category="katakana">カタカナ</button>
+          <button class="tab" type="button" role="tab" aria-selected="false" data-category="animals">どうぶつ</button>
+          <button class="tab" type="button" role="tab" aria-selected="false" data-category="clock">とけい</button>
+          <button class="tab" type="button" role="tab" aria-selected="false" data-category="knowledge">ものしり</button>
+        </div>
+      </div>
+
+      <div class="learning-layout">
+        <article class="focus-card" aria-live="polite">
+          <div class="focus-visual" id="focusVisual">あ</div>
+          <p class="focus-kind" id="focusKind">ひらがな</p>
+          <h3 id="focusTitle">あひる</h3>
+          <p id="focusDescription">「あ」からはじまることば。口を大きくあけて読んでみよう。</p>
+          <button class="primary-action small" type="button" id="masterButton">できた！</button>
+        </article>
+        <div class="card-grid" id="cardGrid" aria-label="学習カード一覧"></div>
+      </div>
+    </section>
+
+    <section class="section-band quiz-band" id="quiz" aria-labelledby="quiz-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">みつけて こたえる</p>
+          <h2 id="quiz-title">ミニクイズ</h2>
+        </div>
+        <button class="icon-button" type="button" id="newQuizButton" aria-label="クイズを変える" title="クイズを変える">↻</button>
+      </div>
+      <article class="quiz-card">
+        <p class="quiz-question" id="quizQuestion">「あ」からはじまることばはどれ？</p>
+        <div class="quiz-options" id="quizOptions"></div>
+        <p class="quiz-result" id="quizResult" aria-live="polite"></p>
+      </article>
+    </section>
+
+    <section class="section-band check-band" id="check" aria-labelledby="check-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">できたをかぞえる</p>
+          <h2 id="check-title">チェック表</h2>
+        </div>
+        <button class="icon-button icon-button-reset" type="button" id="resetProgress" aria-label="チェックをリセット" title="リセット">↺</button>
+      </div>
+      <div id="progressCategories"></div>
+    </section>
+
+    <section class="section-band parent-band" aria-labelledby="parent-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">おうちの人へ</p>
+          <h2 id="parent-title">毎日5分で続けやすく</h2>
+        </div>
+      </div>
+      <div class="parent-grid">
+        <article>
+          <strong>声に出す</strong>
+          <p>カードを押したら、親子で一緒に一回だけ読んでみます。</p>
+        </article>
+        <article>
+          <strong>見つける</strong>
+          <p>家や外で同じ文字・もの・時間を探すと記憶に残ります。</p>
+        </article>
+        <article>
+          <strong>ほめる</strong>
+          <p>正解よりも「やってみた」をスターで見える形にします。</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <span>キッズ勉強くん</span>
+    <span>あそびながら、入学準備。</span>
+  </footer>
+
+  <!-- 文字拡大モーダル -->
+  <div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true" aria-labelledby="modalChar" hidden>
+    <div class="modal-card">
+      <button class="modal-close" type="button" id="modalClose" aria-label="閉じる">✕</button>
+      <div class="modal-char" id="modalChar"></div>
+      <div class="modal-romaji" id="modalRomaji"></div>
+      <div class="modal-word" id="modalWord"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
