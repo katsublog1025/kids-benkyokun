@@ -710,6 +710,28 @@ p {
   background: #ffe4dc;
 }
 
+/* ─── どうぶつビジュアルクイズ ───────────────────────────── */
+
+.quiz-options-visual {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.quiz-option-visual {
+  min-height: 130px;
+  flex-direction: column;
+  gap: 0;
+  padding: 12px 8px;
+  border-radius: 24px;
+  background: linear-gradient(145deg, #fff, #f0fdf4);
+}
+
+.quiz-option-visual span {
+  display: block;
+  font-size: 4.2rem;
+  line-height: 1;
+  margin-bottom: 0;
+}
+
 .quiz-option:disabled {
   cursor: default;
 }
@@ -1289,6 +1311,18 @@ p {
 
   .quiz-options {
     grid-template-columns: 1fr;
+  }
+
+  .quiz-options-visual {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .quiz-option-visual {
+    min-height: 100px;
+  }
+
+  .quiz-option-visual span {
+    font-size: 3.2rem;
   }
 
   .quiz-option {

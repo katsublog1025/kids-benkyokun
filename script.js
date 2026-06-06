@@ -361,9 +361,13 @@ function makeQuiz() {
   const wrongItems = shuffle(quizableItems.filter((item) => item.title !== answer.title)).slice(0, 2);
   const options = shuffle([answer, ...wrongItems]);
 
+  // どうぶつのとき: 50%でビジュアルクイズ（名前を見て絵文字を選ぶ）
+  const isVisualAnimal = state.category === "animals" && Math.random() < 0.5;
   state.currentQuiz = answer;
+  state.isVisualAnimal = isVisualAnimal;
   quizResult.textContent = "";
   quizOptions.innerHTML = "";
+  quizOptions.classList.toggle("quiz-options-visual", isVisualAnimal);
 
   if (state.category === "clock") {
     quizQuestion.textContent = "今何時？";
@@ -371,6 +375,8 @@ function makeQuiz() {
     const clockQuestion = createClockFace(hour, "large", minutes);
     clockQuestion.classList.add("quiz-clock");
     quizOptions.appendChild(clockQuestion);
+  } else if (isVisualAnimal) {
+    quizQuestion.textContent = `「${answer.title}」はどれ？`;
   } else {
     quizQuestion.textContent = `${answer.visual} ${lesson.quizLead}`;
   }
@@ -378,9 +384,14 @@ function makeQuiz() {
   options.forEach((item) => {
     const button = document.createElement("button");
     button.type = "button";
+    button.setAttribute("data-title", item.title);
+
     if (state.category === "clock") {
       button.className = "quiz-option quiz-option-clock";
       button.textContent = item.title;
+    } else if (isVisualAnimal) {
+      button.className = "quiz-option quiz-option-visual";
+      button.innerHTML = `<span>${item.visual}</span>`;
     } else {
       button.className = "quiz-option";
       button.innerHTML = `<span>${item.visual}</span>${item.title}`;
@@ -395,15 +406,17 @@ function answerQuiz(button, isCorrect) {
 
   if (isCorrect) {
     button.classList.add("is-correct");
-    quizResult.textContent = "せいかい！スターを1つもらったよ。";
+    quizResult.textContent = state.isVisualAnimal
+      ? `せいかい！${state.currentQuiz.visual} ${state.currentQuiz.title} だよ！スターを1つもらったよ。`
+      : "せいかい！スターを1つもらったよ。";
     updateStars(1);
     return;
   }
 
   button.classList.add("is-wrong");
-  quizResult.textContent = `もう一回見てみよう。正解は「${state.currentQuiz.title}」だよ。`;
+  quizResult.textContent = `もう一回見てみよう。正解は「${state.currentQuiz.visual} ${state.currentQuiz.title}」だよ。`;
   document.querySelectorAll(".quiz-option").forEach((o) => {
-    if (o.textContent.trim().includes(state.currentQuiz.title)) {
+    if (o.dataset.title === state.currentQuiz.title) {
       o.classList.add("is-correct");
     }
   });
