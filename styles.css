@@ -196,11 +196,11 @@ p {
 }
 
 .hero h1 {
-  max-width: 10em;
+  max-width: 12em;
   margin-bottom: 18px;
-  font-size: clamp(2.45rem, 7vw, 5.7rem);
+  font-size: clamp(2.2rem, 4.2vw, 3.8rem);
   font-weight: 900;
-  line-height: 1.03;
+  line-height: 1.18;
 }
 
 .hero h1 span {
