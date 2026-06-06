@@ -218,10 +218,11 @@ p {
 }
 
 .hero-actions {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 12px;
   margin-top: 30px;
+  max-width: 520px;
 }
 
 .primary-action,
@@ -232,7 +233,17 @@ p {
 .quiz-option {
   border: 0;
   cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
   transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease, border-color 160ms ease;
+}
+
+.primary-action:active,
+.secondary-action:active,
+.quiz-option:not(:disabled):active,
+.learning-card:active {
+  transform: scale(0.96);
+  transition: transform 80ms ease;
 }
 
 .primary-action,
@@ -253,6 +264,12 @@ p {
   border: 2px solid var(--line);
   background: #fff;
   color: var(--ink);
+}
+
+/* ヒーロー内 プライマリボタンを2列全幅 */
+.hero-actions .primary-action {
+  grid-column: 1 / -1;
+  font-size: 1.15rem;
 }
 
 /* ヒーロー内ボタンを色分け */
@@ -1307,8 +1324,12 @@ p {
   }
 
   .hero-actions {
-    width: 100%;
-    flex-direction: column;
+    grid-template-columns: 1fr;
+    max-width: 100%;
+  }
+
+  .hero-actions .primary-action {
+    grid-column: 1;
   }
 
   .primary-action,
