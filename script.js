@@ -51,7 +51,7 @@ const lessons = {
       { visual: "ろ", title: "ろうそく",    description: "「ろ」は、ろうそくの「ろ」。火をつけると明るく燃えるよ。" },
       { visual: "わ", title: "わに",        description: "「わ」は、わにの「わ」。大きな口が特徴の爬虫類だよ。" },
       { visual: "を", title: "を", quizExclude: true, description: "「を」は、「てをあらう」「ほんをよむ」のようにことばをつなぐときに使うよ。" },
-      { visual: "ん", title: "ん", quizExclude: true, description: "「ん」は、「ライオン」「でんしゃ」など言葉の中や最後に出てくる特別な文字だよ。" }
+      { visual: "ん", title: "ん", quizExclude: true, description: "「ん」は、「らいおん」「でんしゃ」など言葉の中や最後に出てくる特別な文字だよ。" }
     ]
   },
   katakana: {
@@ -114,17 +114,17 @@ const lessons = {
     items: [
       { visual: "🐱", title: "ねこ",     description: "小さな肉食の動物。ひげとしっぽで気持ちを表すことがあるよ。" },
       { visual: "🐶", title: "いぬ",     description: "人と長く暮らしてきた動物。においをかぐのがとても得意だよ。" },
-      { visual: "🐼", title: "パンダ",   description: "白と黒の大きな動物。中国の竹林にすんでいるよ。" },
-      { visual: "🐨", title: "コアラ",   description: "オーストラリアにすむ動物。ユーカリの葉が大好きだよ。" },
-      { visual: "🦁", title: "ライオン", description: "大きなネコの仲間。オスには立派なたてがみがあるよ。" },
+      { visual: "🐼", title: "ぱんだ",   description: "白と黒の大きな動物。中国の竹林にすんでいるよ。" },
+      { visual: "🐨", title: "こあら",   description: "オーストラリアにすむ動物。ユーカリの葉が大好きだよ。" },
+      { visual: "🦁", title: "らいおん", description: "大きなネコの仲間。オスには立派なたてがみがあるよ。" },
       { visual: "🐯", title: "とら",     description: "縞模様が美しい大型のネコ科の動物。ジャングルにすんでいるよ。" },
       { visual: "🦊", title: "きつね",   description: "赤茶色の毛とふさふさのしっぽが特徴。かしこい動物だよ。" },
       { visual: "🐻", title: "くま",     description: "大きくて力強い動物。冬になると穴の中で眠るよ。" },
-      { visual: "🐘", title: "ゾウ",     description: "陸で一番大きな動物。長い鼻で水や食べ物をつかむよ。" },
-      { visual: "🦒", title: "キリン",   description: "とても長い首で、高い木の葉を食べる草食動物だよ。" },
+      { visual: "🐘", title: "ぞう",     description: "陸で一番大きな動物。長い鼻で水や食べ物をつかむよ。" },
+      { visual: "🦒", title: "きりん",   description: "とても長い首で、高い木の葉を食べる草食動物だよ。" },
       { visual: "🦓", title: "しまうま", description: "白と黒の縞模様が目印。アフリカのサバンナにすんでいるよ。" },
-      { visual: "🐧", title: "ペンギン", description: "鳥の仲間だけれど、空を飛ばずに泳ぐのが上手だよ。" },
-      { visual: "🐬", title: "イルカ",   description: "海にすむかしこい動物。人とも仲良くなれるよ。" },
+      { visual: "🐧", title: "ぺんぎん", description: "鳥の仲間だけれど、空を飛ばずに泳ぐのが上手だよ。" },
+      { visual: "🐬", title: "いるか",   description: "海にすむかしこい動物。人とも仲良くなれるよ。" },
       { visual: "🐸", title: "かえる",   description: "水辺にすむ生き物。たまごからおたまじゃくしになるよ。" },
       { visual: "🐢", title: "かめ",     description: "かたい甲羅を持つ生き物。とても長生きすることで有名だよ。" },
       { visual: "🦋", title: "ちょう",   description: "羽の模様が美しい虫。花のみつを吸うことが多いよ。" }
